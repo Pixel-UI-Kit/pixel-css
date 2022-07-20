@@ -1,0 +1,89 @@
+$white: white;
+$black: black;
+$empty-circle: rgba(0,0,0,0);
+$font-vt323: 'VT323';
+$font-f77: 'F77';
+
+// Background-Styles
+$transparent10: transparent 10px;
+
+@font-face {
+    font-family: 'F77';
+    src: url('../fonts/F77.ttf');
+}
+
+%standart-style {
+    color: $white;
+    font-family: $font-f77;
+    display: inline-block;
+    vertical-align: top;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+}
+
+%dis-pos {
+    content: "";
+    display: block;
+    position: absolute;
+    background: $black;
+    z-index: -1;
+}
+
+.pi-btn {
+	font-size: 25px;
+	height: auto;
+	margin: 10px;
+	line-height: 0;
+	border-style: solid;
+	border-width: 20px;
+    @extend %standart-style;
+    @extend %user-select;
+    @extend %image-render;
+    @extend %border-image;
+	&:active {
+		top: 2px;
+	}
+	p {
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		width: auto;
+		text-align: center;
+		margin: -20px -20px;
+		line-height: 20px;
+		padding: 10px 20px;
+		background: $black;
+		background: linear-gradient(135deg, $transparent10, $black 0) top left, linear-gradient(225deg, $transparent10, $black 0) top right, linear-gradient(315deg, $transparent10, $black 0) bottom right, linear-gradient(45deg, $transparent10, $black 0) bottom left;
+		background-size: 50% 50%;
+		background-repeat: no-repeat;
+		background-image: radial-gradient(circle at 0 0, $empty-circle 14px, $black 15px), radial-gradient(circle at 100% 0, $empty-circle 14px, $black 15px), radial-gradient(circle at 100% 100%, $empty-circle 14px, $black 15px), radial-gradient(circle at 0 100%, $empty-circle 14px, $black 15px);
+	}
+}
+.pi-btn-big {
+	font-size: 25px;
+    width: auto;
+	height: auto;
+	margin: 10px;
+	padding: 10px 10px;
+	background: $black;
+    @extend %standart-style;
+    @extend %user-select;
+	&:active {
+		top: 2px;
+	}
+	&::before {
+		@extend %dis-pos;
+		top: 10px;
+		bottom: 10px;
+		left: -10px;
+		right: -10px;
+	}
+	&::after {
+        @extend %dis-pos;
+		top: 4px;
+		bottom: 4px;
+		left: -6px;
+		right: -6px;
+	}
+}

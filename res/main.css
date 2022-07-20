@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "F77";
+  src: url("../fonts/F77.ttf");
+}
+.pi-btn-big, .pi-btn {
+  color: white;
+  font-family: "F77";
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+}
+
+.pi-btn-big::after, .pi-btn-big::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: black;
+  z-index: -1;
+}
+
+.pi-btn {
+  font-size: 25px;
+  height: auto;
+  margin: 10px;
+  line-height: 0;
+  border-style: solid;
+  border-width: 20px;
+}
+.pi-btn:active {
+  top: 2px;
+}
+.pi-btn p {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: auto;
+  text-align: center;
+  margin: -20px -20px;
+  line-height: 20px;
+  padding: 10px 20px;
+  background: black;
+  background: linear-gradient(135deg, transparent 10px, black 0) top left, linear-gradient(225deg, transparent 10px, black 0) top right, linear-gradient(315deg, transparent 10px, black 0) bottom right, linear-gradient(45deg, transparent 10px, black 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0) 14px, black 15px), radial-gradient(circle at 100% 0, rgba(0, 0, 0, 0) 14px, black 15px), radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0) 14px, black 15px), radial-gradient(circle at 0 100%, rgba(0, 0, 0, 0) 14px, black 15px);
+}
+
+.pi-btn-big {
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  margin: 10px;
+  padding: 10px 10px;
+  background: black;
+}
+.pi-btn-big:active {
+  top: 2px;
+}
+.pi-btn-big::before {
+  top: 10px;
+  bottom: 10px;
+  left: -10px;
+  right: -10px;
+}
+.pi-btn-big::after {
+  top: 4px;
+  bottom: 4px;
+  left: -6px;
+  right: -6px;
+}
+
+.container {
+  margin: 50px;
+  display: block;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/*
+NOT AN IMPORTABLE CLASS
+CREATED TO BE REUSED IN STANDARD CASES
+*/
+.pi-btn {
+  -moz-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  -webkit-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  -o-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+}
+
+/*
+NOT AN IMPORTABLE CLASS
+CREATED TO BE REUSED IN STANDARD CASES
+*/
+.pi-btn {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/*
+NOT AN IMPORTABLE CLASS
+CREATED TO BE REUSED IN STANDARD CASES
+*/
+.pi-btn, .pi-btn-big {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*# sourceMappingURL=main.css.map */

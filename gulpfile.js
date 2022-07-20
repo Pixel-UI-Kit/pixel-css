@@ -89,9 +89,9 @@ gulp.task('browser-sync', () => {
 
 // Default debugging Mode
 gulp.task('default', gulp.series('sass-compile', 'browser-sync'), () => {  
-    gulp.watch(paths.scss, ['sass-compile']).on("change", reload);
-    gulp.watch(paths.html, ['html']).on("change", reload);
-    gulp.watch(paths.js, ['scripts']).on("change", reload);
+    gulp.watch(paths.scss, gulp.series('sass-compile')).on("change", reload);
+    gulp.watch(paths.html, gulp.series('html')).on("change", reload);
+    gulp.watch(paths.js, gulp.series('scripts')).on("change", reload);
 });
 
 /* ~~~~~~~~~~~~~~~~~~~FUNCTIONS~~~~~~~~~~~~~~~~~~~~~~ */
@@ -104,12 +104,18 @@ const merge = () => {
 
 // Compile main.scss to main.css and .map
 const compile = () => {
-
+    return gulp.src(paths.scss_min)
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            outputStyle: 'extended'
+        })).on('error', sass.logError)
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(paths.res))
 };
 
 // Minify main.scss to main.min.css
 const minify = () => {
-    return gulp.src(paths.scss)
+    return gulp.src(paths.scss_min)
         // Compress file
         .pipe(sass({
             outputStyle: 'compressed'
@@ -131,7 +137,7 @@ exports.merge   = merge;
 exports.compile = compile;
 exports.minify  = minify;
 
-exports.build   = series(
+exports.build   = gulp.series(
     merge,
     compile,
     minify
